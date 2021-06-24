@@ -1,0 +1,9 @@
+{
+  "image": "redis:alpine",
+  "appPort": ["6379:6379"],
+  "mounts": [
+    "source=${localWorkspaceFolder}/data,target=/data,type=bind",
+    "source=${localWorkspaceFolder}/redis.conf,target=/usr/local/etc/redis/redis.conf,type=bind"
+  ],
+  "postAttachCommand": "redis-server /usr/local/etc/redis/redis.conf"
+}
